@@ -10,7 +10,8 @@ import gc           # for memory status
 
 # ------- App config
 print("[BOOT] Starting App Setting ...")
-i2c = board.I2C()  # uses board.SCL and board.SDA
+#i2c = board.I2C()  # uses board.SCL and board.SDA
+i2c = busio.I2C(board.SCL,board.SDA,frequency=400000)      #  Adafruit ESP32-S2 TFT Feather
 
 def i2c_write(SID,regAddr,regData):
     msg = bytearray([regAddr,regData])
